@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bonu.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bonu.description %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @bonu.photo %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @bonu.value %>
+</p>
+
+<p>
+  <strong>Expiration:</strong>
+  <%= @bonu.expiration %>
+</p>
+
+<%= link_to 'Edit', edit_bonu_path(@bonu) %> |
+<%= link_to 'Back', bonus_path %>
