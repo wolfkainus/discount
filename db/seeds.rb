@@ -64,8 +64,8 @@ coupons = []
     title: Faker::Hacker.say_something_smart,
     description: Faker::Hacker.say_something_smart,
     photo: Faker::Hacker.say_something_smart,
-    #value: Faker::Number.between(1, 20),
-    #expiration: Faker::Number.between(1, 20)
+    value: Faker::Number.between(1, 20),
+    expiration: Faker::Number.between(1, 20)
   )
 end
 

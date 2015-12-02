@@ -10,6 +10,7 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
+    @coupons
   end
 
   # GET /coupons/new
