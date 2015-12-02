@@ -3,8 +3,6 @@ Location.destroy_all
 Coupon.destroy_all
 Category.destroy_all
 
-
-
 #admin = User.create(
 #  name: 'Alfredo',
 #  lastname: 'Lobos',
@@ -46,28 +44,28 @@ categories << Category.create(name: 'Peliculas')
 categories << Category.create(name: 'Moda')
 
 
-location = []
+locations = []
 
 40.times do |p|
-  location << Location.create(
+  locations << Location.create(
     store: Faker::Company.name,
     address: Faker::Address.street_name,
     latitude: Faker::Number.between(1, 20),
     longitude: Faker::Number.between(1, 20),
-    category: categories.sample
+    
     #remote_image_url: 'http://lorempixel.com/1200/800'
   )
 end
 
-coupon = []
+coupons = []
 
 50.times do |r|
   coupons << Coupon.create(
     title: Faker::Hacker.say_something_smart,
     description: Faker::Hacker.say_something_smart,
     photo: Faker::Hacker.say_something_smart,
-    value: Faker::Number.between(1, 20),
-    expiration: Faker::Number.between(1, 20)
+    #value: Faker::Number.between(1, 20),
+    #expiration: Faker::Number.between(1, 20)
   )
 end
 
