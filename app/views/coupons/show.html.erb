@@ -10,10 +10,7 @@
   <%= @coupon.description %>
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @coupon.photo %>
-</p>
+<%= image_tag(@coupon.photo_url, size: "250x250")%>
 
 <p>
   <strong>Value:</strong>
