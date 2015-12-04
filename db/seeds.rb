@@ -63,9 +63,9 @@ coupons = []
   coupons << Coupon.create(
     title: Faker::Hacker.say_something_smart,
     description: Faker::Hacker.say_something_smart,
-    photo: Faker::Hacker.say_something_smart,
     value: Faker::Number.between(1, 20),
-    expiration: Faker::Number.between(1, 20)
+    expiration: Faker::Number.between(1, 20),
+    remote_photo_url: 'http://lorempixel.com/1200/800'
   )
 end
 

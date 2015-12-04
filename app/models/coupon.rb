@@ -8,4 +8,6 @@ class Coupon < ActiveRecord::Base
 
   has_many :coupon_locations
   has_many :locations, through: :coupon_locations
+
+  mount_uploader :photo, PhotoUploader
 end
