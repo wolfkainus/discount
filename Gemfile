@@ -23,8 +23,8 @@ gem 'underscore-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 
-gem 'kaminari'
-gem 'kaminari-bootstrap'
+#gem 'kaminari'
+#gem 'kaminari-bootstrap'
 gem 'friendly_id'
 
 gem 'pg_search'
