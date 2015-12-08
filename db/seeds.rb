@@ -25,7 +25,7 @@ users = []
     email: "client_#{i}@mail.com",
     avatar: Faker::Lorem.words,
     password: 'password',
-    role: 2
+    role: 1
   )
 end
 

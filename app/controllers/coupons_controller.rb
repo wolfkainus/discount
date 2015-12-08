@@ -1,8 +1,8 @@
 class CouponsController < ApplicationController
-  
+
   load_and_authorize_resource
 
-  before_action :set_coupon, only: [:show, :edit, :update, :destroy]
+  #before_action :set_coupon, only: [:show, :edit, :update, :destroy]
 
   # GET /coupons
   # GET /coupons.json
@@ -28,7 +28,10 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    @coupon = Coupon.new(coupon_params)
+  #  @coupon = Coupon.new(coupon_params)
+
+    @user = current_user if user_signed_in?
+    @coupon = @user.coupons.build(coupon_params)
 
     respond_to do |format|
       if @coupon.save

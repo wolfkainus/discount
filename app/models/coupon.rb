@@ -6,7 +6,7 @@ class Coupon < ActiveRecord::Base
   validates :value, presence: true
   validates :expiration, presence: true
 
-  has_many :coupon_locations
+  has_many :coupon_locations, dependent: :destroy 
   has_many :locations, through: :coupon_locations
 
   mount_uploader :photo, PhotoUploader

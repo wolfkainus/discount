@@ -9,7 +9,8 @@ class Ability
     elsif user.user?
       can :read, :all
       can :create, :all
-      can [:update, :destroy], [Coupon], user_id: user.id
+      can :update, Coupon, user_id: user.id
+      can :destroy, Coupon, user_id: user.id
     elsif user.guest?
       can :read, :all
     end
