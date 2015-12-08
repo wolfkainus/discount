@@ -23,7 +23,7 @@ users = []
     user_name: Faker::Internet.user_name,
     address: Faker::Address.street_name,
     email: "client_#{i}@mail.com",
-    avatar: Faker::Lorem.words,
+    remote_avatar_url: 'http://lorempixel.com/1200/800',
     password: 'password',
     role: 1
   )
