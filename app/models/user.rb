@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
 	validates :address, presence: true
 	validates :avatar, presence: true
 
+  enum role: [:admin, :user, :guest]
+
+  def default_role
+    self.role ||= 2
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

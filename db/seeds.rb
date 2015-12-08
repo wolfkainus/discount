@@ -3,14 +3,16 @@ Location.destroy_all
 Coupon.destroy_all
 Category.destroy_all
 
-#admin = User.create(
-#  name: 'Alfredo',
-#  lastname: 'Lobos',
-#  username: 'wolf',
-#  email: 'admin@discount.com',
-#  password: 'password',
-#  role: 0
-#)
+admin = User.create(
+  name: 'Alfredo',
+  last_name: 'Lobos',
+  user_name: 'wolf',
+  address: 'Los leones 2835',
+  email: 'admin@discount.com',
+  avatar: Faker::Lorem.words,
+  password: 'password',
+  role: 0
+)
 
 users = []
 
@@ -22,8 +24,8 @@ users = []
     address: Faker::Address.street_name,
     email: "client_#{i}@mail.com",
     avatar: Faker::Lorem.words,
-    password: 'password'
-    #role: 1
+    password: 'password',
+    role: 2
   )
 end
 
@@ -65,7 +67,7 @@ coupons = []
     description: Faker::Hacker.say_something_smart,
     value: Faker::Number.between(1, 20),
     expiration: Faker::Number.between(1, 20),
-    remote_photo_url: 'http://lorempixel.com/1200/800'
+    remote_photo_url: 'http://lorempixel.com/400/200/sports/'
   )
 end
 
