@@ -23,9 +23,9 @@ users = []
     user_name: Faker::Internet.user_name,
     address: Faker::Address.street_name,
     email: "client_#{i}@mail.com",
-    remote_avatar_url: 'http://lorempixel.com/1200/800',
     password: 'password',
-    role: 1
+    role: 1,
+    remote_avatar_url: 'http://lorempixel.com/400/200/sports/'
   )
 end
 
@@ -54,8 +54,6 @@ locations = []
     address: Faker::Address.street_name,
     latitude: Faker::Number.between(1, 20),
     longitude: Faker::Number.between(1, 20),
-    
-    #remote_image_url: 'http://lorempixel.com/1200/800'
   )
 end
 
@@ -67,7 +65,7 @@ coupons = []
     description: Faker::Hacker.say_something_smart,
     value: Faker::Number.between(1, 20),
     expiration: Faker::Number.between(1, 20),
-    remote_photo_url: 'http://lorempixel.com/400/200/sports/'
+    remote_photo_url: 'http://lorempixel.com/400/200/'
   )
 end
 

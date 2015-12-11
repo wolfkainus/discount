@@ -31,6 +31,15 @@
     <%= f.label :expiration %><br>
     <%= f.text_field :expiration %>
   </div>
+
+  <div class="field">
+    <%= f.collection_select(:categories_ids, Category.all, :id, :name, 
+      {include_hidden: false, selected: @coupon.categories.map {|g| 
+        g.id}
+      }, 
+    {multiple: true} ) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

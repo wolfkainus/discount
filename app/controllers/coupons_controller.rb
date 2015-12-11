@@ -2,7 +2,7 @@ class CouponsController < ApplicationController
 
   load_and_authorize_resource
 
-  #before_action :set_coupon, only: [:show, :edit, :update, :destroy]
+  #before_action :set_coupon, only: [:show, :edit, :update, :destroy, :coupon_categories]
 
   # GET /coupons
   # GET /coupons.json
@@ -14,21 +14,28 @@ class CouponsController < ApplicationController
   # GET /coupons/1.json
   def show
     @coupons
+    @categories = Category.all
+    @coupon_categories = @coupon.categories
   end
 
   # GET /coupons/new
   def new
     @coupon = Coupon.new
+    @categories = Category.all
+    @coupon_categories = @coupon.categories
   end
 
   # GET /coupons/1/edit
   def edit
+    @categories = Category.all
+    @coupon_categories = @coupon.categories
   end
 
   # POST /coupons
   # POST /coupons.json
   def create
   #  @coupon = Coupon.new(coupon_params)
+
 
     @user = current_user if user_signed_in?
     @coupon = @user.coupons.build(coupon_params)
@@ -66,7 +73,7 @@ class CouponsController < ApplicationController
       format.html { redirect_to coupons_url, notice: 'Coupon was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -76,6 +83,6 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:title, :description, :photo, :value, :expiration)
+      params.require(:coupon).permit(:title, :description, :photo, :value, :expiration, categories_ids: [])
     end
 end

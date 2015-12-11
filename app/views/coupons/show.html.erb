@@ -22,6 +22,27 @@
   <%= @coupon.expiration %>
 </p>
 
+<h2>Categorias</h2>
+<%= form_tag do %>
+  <table>
+    <thead>
+      <tr>
+        <th>Categorias Seleccionadas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <% if @coupon_categories.include? category %>
+          <tr>
+            <td><%= category.name %></td>
+          </tr>
+
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <% if can? :edit, @coupon %>
   <%= link_to 'Edit', edit_coupon_path(@coupon) %>
 <% end %> |

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :coupons, dependent: :destroy
+
+  mount_uploader :avatar, AvatarUploader
 	
 	validates :name, presence: true
 	validates :last_name, presence: true
