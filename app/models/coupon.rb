@@ -27,4 +27,8 @@ class Coupon < ActiveRecord::Base
     end
   end
 
+  #MEtodo coupon_expiration
+    #Si la fecha del campo expiration = a la fecha actual
+    #se cambia el estado de coupon.status false
+
 end
