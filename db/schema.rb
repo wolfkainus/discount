@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20151212005557) do
     t.text     "description"
     t.string   "photo"
     t.text     "value"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.datetime "expiration"
-    t.boolean  "status"
+    t.boolean  "status",      default: true, null: false
   end
 
   add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree

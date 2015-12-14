@@ -3,7 +3,7 @@
     <%= link_to 'Ingresar', new_user_session_path %>
     <%= link_to 'Registrar', new_user_registration_path %>
   <% else %>
-    <%= image_tag(@avatar, width: '30')%>
+    <%= image_tag(current_user.avatar.thumb, width: '60px')%>
     <%= link_to current_user.name, edit_user_registration_path %> <small><%= current_user.role %></small>
     <%= link_to 'Editar', edit_user_registration_path %>
     <%= link_to 'Salir', destroy_user_session_path, method: :delete, data: { confirm: "Seguro que desea salir?" } %>

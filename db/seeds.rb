@@ -64,7 +64,7 @@ coupons = []
     title: Faker::Hacker.say_something_smart,
     description: Faker::Hacker.say_something_smart,
     value: Faker::Number.between(1, 20),
-    expiration: Faker::Number.between(1, 20),
+    expiration: Faker::Date.between(2.days.ago, 3.days.from_now),
     remote_photo_url: 'http://lorempixel.com/400/200/'
   )
 end

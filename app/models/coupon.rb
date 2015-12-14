@@ -27,8 +27,15 @@ class Coupon < ActiveRecord::Base
     end
   end
 
-  #MEtodo coupon_expiration
-    #Si la fecha del campo expiration = a la fecha actual
-    #se cambia el estado de coupon.status false
+  def self.check_expiration
+    find_each do |c|
+  
+      if c.expiration < Time.now
+        c.status = false
+        c.save
+      end
+      
+    end
+  end
 
 end

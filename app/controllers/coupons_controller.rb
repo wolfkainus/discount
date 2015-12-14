@@ -7,7 +7,8 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.json
   def index
-    @coupons = Coupon.all
+    Coupon.check_expiration
+    @coupons = Coupon.where(status: true)
   end
 
   # GET /coupons/1
@@ -83,6 +84,6 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:title, :description, :photo, :value, :expiration, categories_ids: [])
+      params.require(:coupon).permit(:title, :description, :photo, :value, :status, :expiration, categories_ids: [])
     end
 end
