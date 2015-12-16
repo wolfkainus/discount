@@ -7,7 +7,7 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.json
   def index
-    Coupon.check_expiration
+    #Coupon.check_expiration
     @coupons = Coupon.where(status: true)
   end
 
@@ -74,7 +74,19 @@ class CouponsController < ApplicationController
       format.html { redirect_to coupons_url, notice: 'Coupon was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote 
+    @coupon = Coupon.find(params[:id])
+    @coupon.upvote_by current_user
+    redirect_to :back
   end  
+
+  def downvote
+    @coupon = Coupon.find(params[:id])
+    @coupon.downvote_by current_user
+    redirect_to :back
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

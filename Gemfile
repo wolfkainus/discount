@@ -36,6 +36,8 @@ gem 'delayed_job_active_record'
 
 gem 'dotenv-rails'
 
+gem 'acts_as_votable'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'

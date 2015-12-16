@@ -3,6 +3,9 @@ class Coupon < ActiveRecord::Base
   before_save :save_coupon_categories, if: -> { categories_ids.present? }
 
   belongs_to :user
+
+  acts_as_votable
+
   validates :title, presence: true
   validates :description, presence: true
   validates :photo, presence: true

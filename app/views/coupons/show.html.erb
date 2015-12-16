@@ -1,25 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@coupon.photo_url, width: '250')%>
+
 <p>
   <strong>Title:</strong>
   <%= @coupon.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @coupon.description %>
-</p>
-
-<%= image_tag(@coupon.photo_url, width: '250')%>
-
-<p>
   <strong>Value:</strong>
   <%= @coupon.value %>
-</p>
-
-<p>
-  <strong>Expiration:</strong>
-  <%= @coupon.expiration %>
 </p>
 
 <h2>Categorias</h2>
@@ -42,6 +32,16 @@
     </tbody>
   </table>
 <% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @coupon.description %>
+</p>
+
+<p>
+  <strong>Expiration:</strong>
+  <%= @coupon.expiration %>
+</p>
 
 <% if can? :edit, @coupon %>
   <%= link_to 'Edit', edit_coupon_path(@coupon) %>
