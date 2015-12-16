@@ -11,6 +11,8 @@ class Ability
       can :create, :all
       can :update, Coupon, user_id: user.id
       can :destroy, Coupon, user_id: user.id
+      can :upvote, Coupon
+      can :downvote, Coupon
     elsif user.guest?
       can :read, :all
     end

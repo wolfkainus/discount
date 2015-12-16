@@ -43,6 +43,18 @@
   <%= @coupon.expiration %>
 </p>
 
+<p>
+  <%= link_to like_coupon_path(@coupon), method: :put do %>
+    Upvote
+    <%= @coupon.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_coupon_path(@coupon), method: :put do %>
+    Downvote
+    <%= @coupon.get_downvotes.size %>
+  <% end %>
+</p>
+
 <% if can? :edit, @coupon %>
   <%= link_to 'Edit', edit_coupon_path(@coupon) %>
 <% end %> |
