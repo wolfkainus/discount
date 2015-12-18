@@ -13,15 +13,16 @@
       <th>Expiration</th>
       <th>Author</th>     
       <th>Like</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+  <div class="row">
     <% @coupons.each do |coupon| %>
+      <div class="col-md-6">
       <tr>
         <td><%= image_tag(coupon.photo, width: '250')%></td>
-        <td><%= coupon.title %></td>
+        <td>Titulo<%= coupon.title %></td>
         <td><%= coupon.value %></td>
         <td> aqui va una categoria</td>
         <td><%= coupon.description %></td>
@@ -46,8 +47,9 @@
           <td><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
+      </div>
     <% end %>
-  
+  </div>  
   </tbody>
 </table>
 

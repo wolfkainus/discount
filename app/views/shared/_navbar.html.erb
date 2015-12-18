@@ -1,3 +1,61 @@
+  <!-- Bootstrap Core CSS -->
+  <link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/stylesheets/3-col-portfolio.css" rel="stylesheet">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Discount</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <% unless user_signed_in? %>
+            <%= link_to 'Ingresar', new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to 'Registrar', new_user_registration_path %>
+        </li>
+        <li>
+          <% else %>
+            <%= image_tag(current_user.avatar.thumb, width: '50px')%>
+        </li>
+        <li>
+            <%= link_to current_user.name, edit_user_registration_path %>
+        </li>
+        <li>
+          <a>|</a>
+        </li>
+        <li>
+          <a><%= current_user.role %></a>
+        </li>
+        <li>
+          <%= link_to 'Editar', edit_user_registration_path %>
+        </li>
+        <li>
+            <%= link_to 'Salir', destroy_user_session_path, method: :delete, data: { confirm: "Seguro que desea salir?" } %>
+          <% end %>
+        </li>  
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--
 <p>
   <% unless user_signed_in? %>
     <%= link_to 'Ingresar', new_user_session_path %>
@@ -9,3 +67,4 @@
     <%= link_to 'Salir', destroy_user_session_path, method: :delete, data: { confirm: "Seguro que desea salir?" } %>
   <% end %>
 </p>
+-->
