@@ -29,15 +29,21 @@
         <td><%= coupon.expiration %></td>
         <td><%= coupon.user.email %></td>
         <td>
+
+        <% if can? :upvote, coupon %>
           <%= link_to like_coupon_path(coupon), method: :put do %>
             Upvote
             <%= coupon.get_upvotes.size %>
           <% end %>
+        <% end %>
 
+        <% if can? :downvote, coupon %>
           <%= link_to dislike_coupon_path(coupon), method: :put do %>
             Downvote
             <%= coupon.get_downvotes.size %>
           <% end %>
+        <% end %>
+
         </td>
         <td><%= link_to 'Show', coupon %></td>
         <% if can? :edit, coupon %>
