@@ -122,3 +122,8 @@ h1 {
 .btn_form {
   margin:20px 0;
 }
+
+.logo a {
+  color:white;
+  text-decoration: none;
+}
