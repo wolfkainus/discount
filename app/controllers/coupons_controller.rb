@@ -8,6 +8,7 @@ class CouponsController < ApplicationController
   # GET /coupons.json
   def index
     #Coupon.check_expiration
+    puts '>>>>#{current_user.role}'
     @coupons = Coupon.where(status: true)
   end
 

@@ -10,10 +10,12 @@ class User < ActiveRecord::Base
 	validates :address, presence: true
 	validates :avatar, presence: true
 
+  before_save :default_role
+
   enum role: [:admin, :user, :guest]
 
   def default_role
-    self.role ||= 2
+    self.role ||= 1
   end
 
   # Include default devise modules. Others available are:
