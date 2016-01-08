@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+
+<div class="btn btn-primary btn-lg"><%= link_to 'New Coupon', new_coupon_path %></div>
+
 <h1>Coupon's</h1>
 
 
@@ -13,44 +16,62 @@
           <div class="title"><%= coupon.title %></div>
           <h2>Value</h2>
           <div class="value"><%= coupon.value %></div>
-          <h2>Category</h2>
-          <p> aqui va una categoria</p>
           <h2>Description</h2>
           <p><%= coupon.description %></p>
+          <h2>Category</h2>
+          <p> aqui va una categoria</p>
           <h2>Expiration</h2>
           <p><%= coupon.expiration %></p>
-          <h2>Author</h2>
-          <p><%= coupon.user.email %></p>
+          <!--<h2>Author</h2>
+          <p><%= coupon.user.email %></p>-->
 
-          <h2>Like</h2>
-          <div class="like">
-            <% if can? :upvote, coupon %>
-                <%= link_to like_coupon_path(coupon), method: :put do %>
-                  Upvote
-                  <%= coupon.get_upvotes.size %>
+          
+          <div class="like">            
+              <% if can? :upvote, coupon %>
+                <div class="label label-info">
+                  <div class="glyphicon glyphicon-thumbs-up"></div>
+                    <%= link_to like_coupon_path(coupon), method: :put do %>
+                      Like
+                      <%= coupon.get_upvotes.size %>
+                      <% end %>
+                </div>
               <% end %>
-            <% end %>
-
-            <% if can? :downvote, coupon %>
-                <%= link_to dislike_coupon_path(coupon), method: :put do %>
-                  Downvote
-                  <%= coupon.get_downvotes.size %>
+            
+            
+            
+              <% if can? :downvote, coupon %>
+                <div class="label label-info">
+                  <div class="glyphicon glyphicon-thumbs-down"></div>
+                    <%= link_to dislike_coupon_path(coupon), method: :put do %>
+                      Report
+                      <%= coupon.get_downvotes.size %>
+                    <% end %>
+                </div>
               <% end %>
-            <% end %>
+            
+              
           </div>
-          <div class="cru"><%= link_to 'Show', coupon %></div>
-          <div class="cru">|</div>
+          <div class="cru">
+            <div class="btn btn-success">
+              <%= link_to 'Show', coupon %>
+            </div>
+          </div>
+
           <% if can? :edit, coupon %>
-          <div class="cru"><%= link_to 'Edit', edit_coupon_path(coupon) %></div>
-          <div class="cru">|</div>
+          <div class="cru">
+            <div class="btn btn-warning">
+              <%= link_to 'Edit', edit_coupon_path(coupon) %>
+            </div>            
+          </div>
+
           <% end %>
           <% if can? :destroy, coupon %>
-          <div class="cru"><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <div class="cru">
+            <div class="btn btn-danger">
+              <%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>   
+          </div>
           <% end %>
         </div>
     </div>
   <% end %>
-
-<br>
-
-<%= link_to 'New Coupon', new_coupon_path %>

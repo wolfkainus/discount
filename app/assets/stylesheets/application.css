@@ -15,6 +15,11 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #D7D6DE;
+}
+
 h1 {
   color:grey;
   font-size: 20px;
@@ -22,8 +27,8 @@ h1 {
 .coupon {
   font-size: 15px;
   margin-bottom: 50px;
-  border: 2px solid #B4B5BA;
   padding:15px 15px 15px 0;
+  background-color: white;
 }
 
 .coupon p {
@@ -41,8 +46,24 @@ h1 {
   height: 250px;
 }
 
-.imagen_coupon img {
+.imagen_coupon img, .imagen_coupon_show img {
   border-radius: 100%;
+  border:3px solid white;
+  box-shadow: 3px 3px 10px #888888;
+}
+
+.imagen_coupon_thumb {
+  height: 110px;
+}
+
+.imagen_coupon_show {
+  margin:30px 0;
+}
+
+.imagen_coupon_thumb img{
+  border-radius: 100%;
+  border:3px solid white;
+  box-shadow: 3px 3px 10px #888888;
 }
 
 .info_coupon {
@@ -55,7 +76,7 @@ h1 {
 }
 
 .value {
-  font-size: 25px;
+  font-size: 20px;
   color:#0C72F7;
   font-style: italic;
 }
@@ -63,5 +84,26 @@ h1 {
 .title {
   font-size: 25px;
   color:grey;
+}
+
+.btn a, .cru a, .label a {
+ color:white;
+ text-decoration: none;
+}
+
+.label {
+  margin:5px 5px 5px 0;
+}
+
+.btn {
+  margin:10px 5px 10px 0;
+}
+
+.field {
+  margin-top: 10px;
+}
+
+.avatar img {
+  border-radius: 100%;
 }
 

@@ -21,8 +21,11 @@
   </div>
  
   <div class="field">
-    <%= image_tag(@coupon.photo.thumb, width: '100px') if @coupon.photo? %>
     <%= f.label :photo %><br>
+    <div class="imagen_coupon_thumb">
+      <%= image_tag(@coupon.photo.thumb, width: '100px') if @coupon.photo? %>
+    </div>
+
     <%= f.file_field :photo %>
   </div>
   <div class="field">
@@ -35,6 +38,7 @@
   </div>
 
   <div class="field">
+    <%= f.label :category %><br>
     <%= f.collection_select(:categories_ids, Category.all, :id, :name, 
       {include_hidden: false, selected: @coupon.categories.map {|g| 
         g.id}
