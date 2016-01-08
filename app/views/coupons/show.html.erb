@@ -1,71 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<div class="imagen_coupon_show">
-  <%= image_tag(@coupon.photo_url, width: '250')%>
-</div>
+<div class="coupon_show">
+  <div class="imagen_coupon_show">
+    <%= image_tag(@coupon.photo_url, width: '250')%>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @coupon.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @coupon.title %>
+  </p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @coupon.value %>
-</p>
+  <p>
+    <strong>Value:</strong>
+    <%= @coupon.value %>
+  </p>
 
-<p>
-<%= form_tag do %>
-  <table>
-    <thead>
-      <tr>
-        <th>Categorias Seleccionadas</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <% if @coupon_categories.include? category %>
-          <tr>
-            <td><%= category.name %></td>
-          </tr>
+  <p>
+  <%= form_tag do %>
+    <table>
+      <thead>
+        <tr>
+          <th>Categorias Seleccionadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @categories.each do |category| %>
+          <% if @coupon_categories.include? category %>
+            <tr>
+              <td><%= category.name %></td>
+            </tr>
 
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @coupon.description %>
-</p>
-
-<p>
-  <strong>Expiration:</strong>
-  <%= @coupon.expiration %>
-</p>
-
-<p><strong>Author: </strong><%= @coupon.user.email %></p>
-
-<div class="label label-info">
-  <div class="glyphicon glyphicon-thumbs-up"></div>
-  <%= link_to like_coupon_path(@coupon), method: :put do %>
-    Upvote
-    <%= @coupon.get_upvotes.size %>
+      </tbody>
+    </table>
   <% end %>
-</div>
+  </p>
 
-<div class="label label-info">
-  <div class="glyphicon glyphicon-thumbs-up"></div>
-  <%= link_to dislike_coupon_path(@coupon), method: :put do %>
-    Downvote
-    <%= @coupon.get_downvotes.size %>
-  <% end %>
-</div>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @coupon.description %>
+  </p>
 
-<% if can? :edit, @coupon %>
-  <div class="btn btn-primary"><%= link_to 'Edit', edit_coupon_path(@coupon) %></div>
-<% end %> 
-  <div class="btn btn-primary"><%= link_to 'Back', coupons_path %></div>
+  <p>
+    <strong>Expiration:</strong>
+    <%= @coupon.expiration %>
+  </p>
+
+  <p><strong>Author: </strong><%= @coupon.user.email %></p>
+
+  <div class="label label-info">
+    <div class="glyphicon glyphicon-thumbs-up"></div>
+    <%= link_to like_coupon_path(@coupon), method: :put do %>
+      Upvote
+      <%= @coupon.get_upvotes.size %>
+    <% end %>
+  </div>
+
+  <div class="label label-info">
+    <div class="glyphicon glyphicon-thumbs-up"></div>
+    <%= link_to dislike_coupon_path(@coupon), method: :put do %>
+      Downvote
+      <%= @coupon.get_downvotes.size %>
+    <% end %>
+  </div>
+  </p>
+
+  <% if can? :edit, @coupon %>
+    <div class="btn btn-primary"><%= link_to 'Edit', edit_coupon_path(@coupon) %></div>
+  <% end %> 
+    <div class="btn btn-primary"><%= link_to 'Back', coupons_path %></div>
+</div>
