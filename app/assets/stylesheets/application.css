@@ -15,3 +15,53 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+  color:grey;
+  font-size: 20px;
+}
+.coupon {
+  font-size: 15px;
+  margin-bottom: 50px;
+  border: 2px solid #B4B5BA;
+  padding:15px 15px 15px 0;
+}
+
+.coupon p {
+  font-style: italic;
+  color:grey;
+}
+
+.coupon h2 {
+  font-size: 16px;
+  line-height: 0;
+  color:#0DA1FF;
+}
+
+.imagen_coupon {
+  height: 250px;
+}
+
+.imagen_coupon img {
+  border-radius: 100%;
+}
+
+.info_coupon {
+  margin-top: -10px;
+}
+
+.cru {
+  float:left;
+  margin:10px 3px 0 3px;
+}
+
+.value {
+  font-size: 25px;
+  color:#0C72F7;
+  font-style: italic;
+}
+
+.title {
+  font-size: 25px;
+  color:grey;
+}
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :coupons
   resources :locations
-  devise_for :users
 
   resources :coupons do 
     member do

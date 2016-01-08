@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Coupons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Coupon</th>
+      <th>Title</th>
+      <th>Value</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Expiration</th>
+      <th>Author</th>     
+      <th>Like</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <div class="row">
+    <% @coupons.each do |coupon| %>
+      <div class="col-md-6">
+      <tr>
+        <td><%= image_tag(coupon.photo, width: '250')%></td>
+        <td>Titulo<%= coupon.title %></td>
+        <td><%= coupon.value %></td>
+        <td> aqui va una categoria</td>
+        <td><%= coupon.description %></td>
+        <td><%= coupon.expiration %></td>
+        <td><%= coupon.user.email %></td>
+        <td>
+
+        <% if can? :upvote, coupon %>
+          <%= link_to like_coupon_path(coupon), method: :put do %>
+            Upvote
+            <%= coupon.get_upvotes.size %>
+          <% end %>
+        <% end %>
+
+        <% if can? :downvote, coupon %>
+          <%= link_to dislike_coupon_path(coupon), method: :put do %>
+            Downvote
+            <%= coupon.get_downvotes.size %>
+          <% end %>
+        <% end %>
+
+        </td>
+        <td><%= link_to 'Show', coupon %></td>
+        <% if can? :edit, coupon %>
+          <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
+        <% end %>
+        <% if can? :destroy, coupon %>
+          <td><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+      </div>
+    <% end %>
+  </div>  
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coupon', new_coupon_path %>
